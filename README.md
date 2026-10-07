@@ -19,6 +19,23 @@ pnpm test
 pnpm preview
 ```
 
+## GitHub Pages
+
+在线访问：https://kejunmao.github.io/energy-bill-prototype/
+
+推送到 `main` 后，`.github/workflows/pages.yml` 自动安装依赖、运行测试、构建并部署 `dist/`。也可在 GitHub Actions 中手动运行 `Deploy GitHub Pages`。
+
+仓库的 `Settings → Pages → Source` 需选择 `GitHub Actions`。构建使用 Pages 返回的 `base_path`，自动适配仓库子路径或自定义域名；本地开发仍使用根路径。
+
+在本地检查仓库子路径部署：
+
+```sh
+pnpm build --base /energy-bill-prototype/
+pnpm preview --base /energy-bill-prototype/
+```
+
+访问 `http://127.0.0.1:4173/energy-bill-prototype/`，检查账单预览、字体、图片和打印。草稿只保存在当前浏览器当前站点的 `localStorage`，本地与线上不会共享。
+
 ## 试用
 
 - 编辑称谓、姓名、账户号码、邮寄地址、供能地址，右侧四页账单实时更新。
